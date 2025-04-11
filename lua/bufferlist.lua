@@ -398,6 +398,10 @@ local function list_buffers()
 	local row = math.floor((vim.go.lines - height) / 2)
 	local column = math.floor((vim.go.columns - default_opts.width) / 2)
 
+	if height == 0 then
+		return
+	end
+
 	local win = api.nvim_open_win(scratch_buf, true, {
 		relative = "editor",
 		width = default_opts.width,
