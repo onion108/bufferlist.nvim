@@ -399,6 +399,8 @@ local function list_buffers()
 	local column = math.floor((vim.go.columns - default_opts.width) / 2)
 
 	if height == 0 then
+		-- Cleanup buffer on exit
+		api.nvim_buf_delete(scratch_buf, { force = true })
 		return
 	end
 
